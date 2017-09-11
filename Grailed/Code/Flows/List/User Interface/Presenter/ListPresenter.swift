@@ -7,8 +7,9 @@
 //
 
 import Foundation
+import UIKit
 
-class ListPresenter<T: Listable> {
+class ListPresenter: NSObject {
     
     let interactor: ListInteractorType
     
@@ -19,5 +20,32 @@ class ListPresenter<T: Listable> {
 }
 
 extension ListPresenter: ListPresenterType {
+    
+}
+
+
+extension ListPresenter: UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.interactor.items().count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell: UITableViewCell = UITableViewCell()
+        cell.textLabel?.text = "Andrew Copp"
+        return cell
+    }
+    
+}
+
+extension ListPresenter: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+    }
     
 }

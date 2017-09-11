@@ -7,7 +7,8 @@
 //
 
 import Foundation
+import UIKit
 
-protocol ListPresenterType {
+protocol ListPresenterType: UITableViewDataSource, UITableViewDelegate {
     
 }

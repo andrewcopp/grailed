@@ -20,4 +20,8 @@ class ListInteractor<T: Listable> {
 
 extension ListInteractor: ListInteractorType {
     
+    func items() -> [Listable] {
+        return []
+    }
+    
 }

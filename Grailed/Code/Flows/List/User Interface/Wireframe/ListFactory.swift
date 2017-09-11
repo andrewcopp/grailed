@@ -24,7 +24,7 @@ extension ListFactory: ListFactoryType {
     func viewController() -> UIViewController {
         let dataManager: ListDataManagerType = ListDataManager()
         let interactor: ListInteractorType = ListInteractor<T>(dataManager: dataManager)
-        let presenter: ListPresenterType = ListPresenter<T>(interactor: interactor)
+        let presenter: ListPresenterType = ListPresenter(interactor: interactor)
         return ListViewController(presenter: presenter)
     }
     

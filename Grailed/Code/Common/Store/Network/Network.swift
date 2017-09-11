@@ -10,8 +10,16 @@ import Foundation
 
 class Network {
     
+    let urlSession: URLSession
+    
+    init() {
+        let configuration: URLSessionConfiguration = URLSessionConfiguration.default
+        self.urlSession = URLSession(configuration: configuration)
+    }
+    
 }
 
 extension Network: StoreType {
     
 }
+
