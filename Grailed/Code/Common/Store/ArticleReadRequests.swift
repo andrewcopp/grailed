@@ -10,8 +10,26 @@ import Foundation
 
 struct ArticleReadRequests {
     
+    let _requests: [ArticleReadRequest]
+    
+    init(requests: [ArticleReadRequest]) {
+        self._requests = requests
+    }
+    
 }
 
-extension ArticleReadRequests: RequestsType {
+extension ArticleReadRequests: ReadRequestsType {
+ 
+    static var model: String {
+        return "articles"
+    }
+    
+    static var properties: [String] {
+        return ["url", "title", "published_at"]
+    }
+    
+    func requests() -> [RequestType] {
+        return self._requests
+    }
     
 }

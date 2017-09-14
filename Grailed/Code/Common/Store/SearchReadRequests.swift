@@ -10,8 +10,26 @@ import Foundation
 
 struct SearchReadRequests {
     
+    let _requests: [SearchReadRequest]
+    
+    init(requests: [SearchReadRequest]) {
+        self._requests = requests
+    }
+    
 }
 
-extension SearchReadRequests: RequestsType {
+extension SearchReadRequests: ReadRequestsType {
+    
+    static var model: String {
+        return "searches"
+    }
+    
+    static var properties: [String] {
+        return ["name", "url"]
+    }
+    
+    func requests() -> [RequestType] {
+        return self._requests
+    }
     
 }

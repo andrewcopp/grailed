@@ -10,8 +10,18 @@ import Foundation
 
 struct SearchReadRequest {
     
+    let _type: ReadType
+    
+    init(type: ReadType) {
+        self._type = type
+    }
+    
 }
 
 extension SearchReadRequest: RequestType {
+    
+    func type() -> ReadType {
+        return self._type
+    }
     
 }

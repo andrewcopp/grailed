@@ -10,8 +10,19 @@ import Foundation
 
 class Cache {
     
+    let base: StoreType
+    
+    init(base: StoreType) {
+        self.base = base
+    }
+    
+    
 }
 
 extension Cache: StoreType {
+
+    func execute(requests: RequestsType) -> ResponsesType {
+        return ArticleReadResponses(responses: [])
+    }
     
 }

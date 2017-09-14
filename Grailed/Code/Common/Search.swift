@@ -17,4 +17,9 @@ struct Search {
 
 extension Search: Listable {
     
+    init(response: ResponseType) {
+        self.name = "This is a test."
+        self.url = URL(string: "www.google.com")!
+    }
+    
 }

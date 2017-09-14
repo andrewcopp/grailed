@@ -9,6 +9,9 @@
 import Foundation
 import UIKit
 
-protocol ListPresenterType: UITableViewDataSource, UITableViewDelegate {
+protocol ListPresenterType {
+    
+    func configure(tableView: UITableView)
+    func refresh()
     
 }

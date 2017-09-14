@@ -10,6 +10,8 @@ import Foundation
 
 protocol ListInteractorType {
     
+    func refresh()
+    
     func items() -> [Listable]
     
 }

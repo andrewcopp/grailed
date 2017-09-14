@@ -10,4 +10,9 @@ import Foundation
 
 protocol RequestsType {
     
+    static var method: Method { get }
+    static var model: String { get }
+    
+    func requests() -> [RequestType]
+    
 }

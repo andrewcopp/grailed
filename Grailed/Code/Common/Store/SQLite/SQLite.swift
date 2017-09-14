@@ -11,3 +11,11 @@ import Foundation
 class SQLite {
     
 }
+
+extension SQLite: StoreType {
+    
+    func execute(requests: RequestsType) -> ResponsesType {
+        return ArticleReadResponses(responses: [])
+    }
+    
+}

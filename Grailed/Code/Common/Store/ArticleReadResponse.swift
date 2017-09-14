@@ -10,6 +10,12 @@ import Foundation
 
 struct ArticleReadResponse {
     
+    let articles: [Article]
+    
+    init(articles: [Article]) {
+        self.articles = articles
+    }
+    
 }
 
 extension ArticleReadResponse: ResponseType {

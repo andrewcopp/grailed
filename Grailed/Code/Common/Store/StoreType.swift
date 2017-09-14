@@ -10,4 +10,6 @@ import Foundation
 
 protocol StoreType {
     
+    func execute(requests: RequestsType) -> ResponsesType
+    
 }

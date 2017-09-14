@@ -10,4 +10,6 @@ import Foundation
 
 protocol Listable {
     
+    init(response: ResponseType)
+    
 }

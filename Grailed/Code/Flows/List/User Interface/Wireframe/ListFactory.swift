@@ -11,9 +11,11 @@ import UIKit
 
 class ListFactory<T: Listable> {
     
+    let network: NetworkType
     let store: StoreType
     
-    init(store: StoreType) {
+    init(network: NetworkType, store: StoreType) {
+        self.network = network
         self.store = store
     }
     
@@ -22,8 +24,7 @@ class ListFactory<T: Listable> {
 extension ListFactory: ListFactoryType {
  
     func viewController() -> UIViewController {
-        let dataManager: ListDataManagerType = ListDataManager()
-        let interactor: ListInteractorType = ListInteractor<T>(dataManager: dataManager)
+        let interactor: ListInteractorType = ListInteractor<T>(network: self.network, store: self.store)
         let presenter: ListPresenterType = ListPresenter(interactor: interactor)
         return ListViewController(presenter: presenter)
     }

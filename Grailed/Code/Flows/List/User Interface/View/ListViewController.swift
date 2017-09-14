@@ -26,6 +26,8 @@ class ListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        NotificationCenter.default.addObserver(self, selector: #selector(ListViewController.applicationDidBecomeActive(notificaiton:)), name: Notification.Name.UIApplicationDidBecomeActive, object: nil)
+        
         self.tableView.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(self.tableView)
         
@@ -35,8 +37,12 @@ class ListViewController: UIViewController {
         self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[tableView]|", options: options, metrics: metrics, views: views))
         self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[tableView]|", options: options, metrics: metrics, views: views))
         
-        self.tableView.dataSource = self.presenter
-        self.tableView.delegate = self.presenter
+        self.presenter.configure(tableView: self.tableView)
+        self.presenter.refresh()
+    }
+    
+    dynamic func applicationDidBecomeActive(notificaiton: Notification) {
+        self.presenter.refresh()
     }
     
 }

@@ -16,8 +16,8 @@ class AppConfiguration {
     init(dependencies: AppDependencies) {
         self.dependencies = dependencies
         
-        let articleFactory: FactoryType = ListFactory<Article>(store: dependencies.cache)
-        let searchFactory: FactoryType = ListFactory<Search>(store: dependencies.cache)
+        let articleFactory: FactoryType = ListFactory<Article>(network: self.dependencies.network, store: self.dependencies.cache)
+        let searchFactory: FactoryType = ListFactory<Search>(network: self.dependencies.network, store: self.dependencies.cache)
         
         let articleRouter: RouterType = NavigationRouter(router: ViewRouter(factory: articleFactory))
         let searchRouter: RouterType = NavigationRouter(router: ViewRouter(factory: searchFactory))

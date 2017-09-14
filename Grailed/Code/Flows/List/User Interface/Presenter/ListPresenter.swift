@@ -21,6 +21,15 @@ class ListPresenter: NSObject {
 
 extension ListPresenter: ListPresenterType {
     
+    func configure(tableView: UITableView) {
+        tableView.dataSource = self
+        tableView.delegate = self
+    }
+    
+    func refresh() {
+        self.interactor.refresh()
+    }
+    
 }
 
 

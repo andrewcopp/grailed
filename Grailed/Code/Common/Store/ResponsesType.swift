@@ -10,4 +10,6 @@ import Foundation
 
 protocol ResponsesType {
     
+    func responses() -> [ResponseType]
+    
 }

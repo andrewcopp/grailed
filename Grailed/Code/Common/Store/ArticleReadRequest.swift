@@ -10,8 +10,18 @@ import Foundation
 
 struct ArticleReadRequest {
     
+    let _type: ReadType
+    
+    init(type: ReadType) {
+        self._type = type
+    }
+    
 }
 
 extension ArticleReadRequest: RequestType {
+    
+    func type() -> ReadType {
+        return self._type
+    }
     
 }

@@ -18,4 +18,10 @@ struct Article {
 
 extension Article: Listable {
     
+    init(response: ResponseType) {
+        self.url = URL(string: "www.google.com")!
+        self.title = "This is a test."
+        self.publishedAt = Date()
+    }
+    
 }

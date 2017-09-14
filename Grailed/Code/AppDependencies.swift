@@ -10,7 +10,7 @@ import Foundation
 
 class AppDependencies {
     
-    let network: StoreType = Network()
-    let cache: StoreType = Cache()
+    let network: NetworkType = HTTP()
+    let cache: StoreType = Cache(base: SQLite())
     
 }

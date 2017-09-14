@@ -10,8 +10,18 @@ import Foundation
 
 struct ArticleReadResponses {
     
+    let _responses: [ArticleReadResponse]
+    
+    init(responses: [ArticleReadResponse]) {
+        self._responses = responses
+    }
+    
 }
 
 extension ArticleReadResponses: ResponsesType {
+ 
+    func responses() -> [ResponseType] {
+        return self._responses
+    }
     
 }

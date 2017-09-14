@@ -10,8 +10,18 @@ import Foundation
 
 struct SearchReadResponses {
     
+    let _responses: [SearchReadResponse]
+    
+    init(responses: [SearchReadResponse]) {
+        self._responses = responses
+    }
+    
 }
 
 extension SearchReadResponses: ResponsesType {
+ 
+    func responses() -> [ResponseType] {
+        return self._responses
+    }
     
 }
