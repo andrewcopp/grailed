@@ -12,7 +12,7 @@ class ListViewController: UIViewController {
  
     let presenter: ListPresenterType
     
-    let tableView: UITableView = UITableView()
+    let _tableView: UITableView = UITableView()
     
     init(presenter: ListPresenterType) {
         self.presenter = presenter
@@ -28,16 +28,16 @@ class ListViewController: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(ListViewController.applicationDidBecomeActive(notificaiton:)), name: Notification.Name.UIApplicationDidBecomeActive, object: nil)
         
-        self.tableView.translatesAutoresizingMaskIntoConstraints = false
-        self.view.addSubview(self.tableView)
+        self._tableView.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(self._tableView)
         
         let options: NSLayoutFormatOptions = []
         let metrics: [String : Any]? = nil
-        let views: [String : Any] = ["tableView" : self.tableView]
+        let views: [String : Any] = ["tableView" : self._tableView]
         self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[tableView]|", options: options, metrics: metrics, views: views))
         self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[tableView]|", options: options, metrics: metrics, views: views))
         
-        self.presenter.configure(tableView: self.tableView)
+        self.presenter.configure(tableView: self._tableView)
         self.presenter.refresh()
     }
     
@@ -48,5 +48,9 @@ class ListViewController: UIViewController {
 }
 
 extension ListViewController: ListViewControllerType {
+    
+    func tableView() -> UITableView {
+        return self._tableView
+    }
     
 }

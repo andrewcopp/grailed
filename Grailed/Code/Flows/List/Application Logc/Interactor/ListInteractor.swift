@@ -12,7 +12,7 @@ class ListInteractor<T> where T: Storable, T: Listable {
     
     let network: NetworkType
     let store: StoreType
-    
+        
     init(network: NetworkType, store: StoreType) {
         self.network = network
         self.store = store

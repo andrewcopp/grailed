@@ -11,6 +11,7 @@ import UIKit
 
 class ListPresenter: NSObject {
     
+    weak var viewController: ListViewControllerType?
     let interactor: ListInteractorType
     
     init(interactor: ListInteractorType) {

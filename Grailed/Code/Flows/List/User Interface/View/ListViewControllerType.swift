@@ -7,7 +7,10 @@
 //
 
 import Foundation
+import UIKit
 
 protocol ListViewControllerType: ViewControllerType {
+    
+    func tableView() -> UITableView
     
 }

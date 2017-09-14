@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol ViewControllerType {
+protocol ViewControllerType: class {
     
 }
