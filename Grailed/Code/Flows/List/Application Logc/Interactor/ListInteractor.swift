@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ListInteractor<T: Listable> {
+class ListInteractor<T> where T: Storable, T: Listable {
     
     let network: NetworkType
     let store: StoreType
@@ -18,19 +18,21 @@ class ListInteractor<T: Listable> {
         self.store = store
     }
     
-    func fetch(completion: ([T]) -> ()) {
-//        let requests: [ArticleReadRequest] = [ArticleReadRequest()]
-//        let request: ArticleReadRequests = ArticleReadRequests(requests: requests)
-//        self.network.execute(requests: request) { response in
-//            let listables: [T] = response.responses().map() { response in
-//                return Article(url: URL(string: "www.google.com")!, title: "This is a test", publishedAt: Date())
-//            }
-//            completion(listables)
-//        }
+    func fetch(completion: @escaping ([T]) -> ()) {
+        let requests: [ReadRequestType] = [IndexRequest(limit: 30, offset: 0)]
+        let request: ReadRequestsType = IndexRequests(model: T.model, properties: T.properties, requests: requests)
+        self.network.read(requests: request) { response in
+            let responses: [ReadResponseType] = response.responses()
+            if responses.count > 0, let objects = responses[0].objects() as? [T] {
+                return completion(objects)
+            }
+        }
     }
     
-    func persist(listables: [T]) {
-        
+    func persist(storables: [T]) {
+        storables.forEach() { storable in
+            print(storable.toJSON())
+        }
     }
     
 }
@@ -38,23 +40,23 @@ class ListInteractor<T: Listable> {
 extension ListInteractor: ListInteractorType {
     
     func refresh() {
-        self.fetch() { listables in
-            self.persist(listables: listables)
+        self.fetch() { storables in
+            self.persist(storables: storables)
         }
     }
     
     func items() -> [Listable] {
-        let requests: [ArticleReadRequest] = [ArticleReadRequest(type: ReadType.Index(limit: 30, offset: 0))]
-        let request: ArticleReadRequests = ArticleReadRequests(requests: requests)
-        guard let response: ArticleReadResponses = self.store.execute(requests: request) as? ArticleReadResponses else {
+        
+        let requests: [ReadRequestType] = [IndexRequest(limit: 30, offset: 0)]
+        let request: ReadRequestsType = IndexRequests(model: T.model, properties: T.properties, requests: requests)
+        let response: ReadResponsesType = self.store.read(request: request)
+        let responses: [ReadResponseType] = response.responses()
+        
+        if responses.count > 0, let listables = responses[0].objects() as? [Listable] {
+            return listables
+        } else {
             return []
         }
-        
-        let articles: [Article] = response.responses().map() { response in
-            return Article(url: URL(string: "www.google.com")!, title: "This is a test", publishedAt: Date())
-        }
-        
-        return articles
     }
     
 }

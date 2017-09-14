@@ -14,8 +14,12 @@ class SQLite {
 
 extension SQLite: StoreType {
     
-    func execute(requests: RequestsType) -> ResponsesType {
-        return ArticleReadResponses(responses: [])
+    func read(request: ReadRequestsType) -> ReadResponsesType {
+        return FindResponses(responses: [])
+    }
+    
+    func write(request: RequestsType) -> ResponsesType {
+        return CreateResponses(responses: [])
     }
     
 }

@@ -10,6 +10,7 @@ import Foundation
 
 protocol StoreType {
     
-    func execute(requests: RequestsType) -> ResponsesType
+    func read(request: ReadRequestsType) -> ReadResponsesType
+    func write(request: RequestsType) -> ResponsesType
     
 }

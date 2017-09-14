@@ -10,7 +10,7 @@ import Foundation
 
 class AppDependencies {
     
-    let network: NetworkType = HTTP()
+    let network: NetworkType = HTTP(host: "https://www.grailed.com/api")
     let cache: StoreType = Cache(base: SQLite())
     
 }

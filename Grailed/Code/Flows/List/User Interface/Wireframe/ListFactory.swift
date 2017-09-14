@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class ListFactory<T: Listable> {
+class ListFactory<T> where T: Storable, T: Listable {
     
     let network: NetworkType
     let store: StoreType

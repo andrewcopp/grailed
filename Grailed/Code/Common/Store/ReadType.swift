@@ -8,10 +8,11 @@
 
 import Foundation
 
+// TODO: Rename
 enum ReadType {
     
     case Find(identifier: Int)
     case Index(limit: Int, offset: Int)
-    case Search(parameters: [String : AnyObject])
+    case Search(parameters: JSONDictionary)
     
 }

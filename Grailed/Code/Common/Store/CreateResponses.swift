@@ -1,25 +1,25 @@
 //
-//  ArticleReadResponses.swift
+//  CreateResponses.swift
 //  Grailed
 //
-//  Created by Andrew Copp on 9/10/17.
+//  Created by Andrew Copp on 9/14/17.
 //  Copyright © 2017 Andrew Copp. All rights reserved.
 //
 
 import Foundation
 
-struct ArticleReadResponses {
+struct CreateResponses {
     
-    let _responses: [ArticleReadResponse]
+    let _responses: [ResponseType]
     
-    init(responses: [ArticleReadResponse]) {
+    init(responses: [ResponseType]) {
         self._responses = responses
     }
     
 }
 
-extension ArticleReadResponses: ResponsesType {
- 
+extension CreateResponses: ResponsesType {
+    
     func responses() -> [ResponseType] {
         return self._responses
     }

@@ -10,9 +10,11 @@ import Foundation
 
 class HTTP {
     
+    let host: String
     let urlSession: URLSession
     
-    init() {
+    init(host: String) {
+        self.host = host
         let configuration: URLSessionConfiguration = URLSessionConfiguration.default
         self.urlSession = URLSession(configuration: configuration)
     }
@@ -21,35 +23,55 @@ class HTTP {
 
 extension HTTP: NetworkType {
     
-    func execute(requests: RequestsType, completion: (ResponsesType) -> ()) {
+    func read(requests: ReadRequestsType, completion: @escaping (ReadResponsesType) -> ()) {
         
-        if requests.requests().count > 1 {
+        if requests.requests().count != 1 {
             // TODO - Batching
             return
         }
     
         requests.requests().forEach() { request in
             
-            let url: URL = URL(string: "")!
+            let url: URL = URL(string: self.host)!.appendingPathComponent("articles").appendingPathComponent("ios_index")
             var urlRequest: URLRequest = URLRequest(url: url)
+            urlRequest.httpMethod = HTTPMethod.get.rawValue
             
-            switch type(of: requests).method {
-            case Method.create:
-                urlRequest.httpMethod = HTTPMethod.post.rawValue
-            case Method.read:
-                urlRequest.httpMethod = HTTPMethod.get.rawValue
-            case Method.update:
-                urlRequest.httpMethod = HTTPMethod.put.rawValue
-            case Method.delete:
-                urlRequest.httpMethod = HTTPMethod.delete.rawValue
-            }
+            print(url)
             
             self.urlSession.dataTask(with: urlRequest) { optionalData, optionalResponse, optionalError in
-                //
+                
+                if let error: Error = optionalError {
+                    print(error)
+                }
+                
+                guard let data: Data = optionalData else {
+                    return
+                }
+                
+                let optionalJSON: JSONDictionary?
+                do {
+                    optionalJSON = try JSONSerialization.jsonObject(with: data, options: []) as? JSONDictionary
+                } catch {
+                    print(error)
+                    return
+                }
+                
+                guard let json: JSONArray = optionalJSON?["data"] as? JSONArray else {
+                    return
+                }
+                
+                let responses: [ReadResponseType] = [ReadResponse(objects: json.flatMap({ Article(json: $0) }))]
+                let response: ReadResponsesType = ReadResponses(responses: responses)
+                completion(response)
+                
             }.resume()
             
         }
         
+    }
+    
+    func write(requests: RequestsType, completion: @escaping (ResponsesType) -> ()) {
+
     }
     
 }

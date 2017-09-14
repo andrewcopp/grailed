@@ -15,6 +15,23 @@ struct Search {
     
 }
 
+extension Search: Storable {
+    
+    static var model: String {
+        return "searches"
+    }
+    
+    static var properties: [String] {
+        return ["name", "url"]
+    }
+    
+    func toJSON() -> JSONDictionary {
+        let json: JSONDictionary = ["name" : name as AnyObject, "url" : url as AnyObject]
+        return json
+    }
+    
+}
+
 extension Search: Listable {
     
     init(response: ResponseType) {

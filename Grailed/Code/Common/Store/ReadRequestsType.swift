@@ -10,7 +10,8 @@ import Foundation
 
 protocol ReadRequestsType: RequestsType {
 
-    static var properties: [String] { get }
+    func properties() -> [String]
+    func requests() -> [ReadRequestType]
     
 }
 

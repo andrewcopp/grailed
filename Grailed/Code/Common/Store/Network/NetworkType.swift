@@ -10,6 +10,7 @@ import Foundation
 
 protocol NetworkType {
     
-    func execute(requests: RequestsType, completion: (ResponsesType) -> ())
-
+    func read(requests: ReadRequestsType, completion: @escaping (ReadResponsesType) -> ())
+    func write(requests: RequestsType, completion: @escaping (ResponsesType) -> ())
+    
 }

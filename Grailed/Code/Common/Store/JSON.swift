@@ -1,5 +1,5 @@
 //
-//  ReadRequestType.swift
+//  JSON.swift
 //  Grailed
 //
 //  Created by Andrew Copp on 9/13/17.
@@ -8,8 +8,5 @@
 
 import Foundation
 
-protocol ReadRequestType: RequestType {
-
-    func type() -> ReadType
-    
-}
+typealias JSONDictionary = [String : AnyObject]
+typealias JSONArray = [JSONDictionary]
