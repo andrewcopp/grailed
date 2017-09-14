@@ -1,5 +1,5 @@
 //
-//  CreateResponse.swift
+//  WriteRequestsType.swift
 //  Grailed
 //
 //  Created by Andrew Copp on 9/14/17.
@@ -8,10 +8,4 @@
 
 import Foundation
 
-struct CreateResponse {
-    
-}
-
-extension CreateResponse: ResponseType {
-    
-}
+protocol WriteRequestsType { }

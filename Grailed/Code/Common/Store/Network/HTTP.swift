@@ -70,7 +70,7 @@ extension HTTP: NetworkType {
         
     }
     
-    func write(requests: RequestsType, completion: @escaping (ResponsesType) -> ()) {
+    func write(requests: WriteRequestsType, completion: @escaping (WriteResponsesType) -> ()) {
 
     }
     

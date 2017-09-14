@@ -54,8 +54,8 @@ extension Cache: StoreType {
         return ReadResponses(responses: responses)
     }
     
-    func write(request: RequestsType) -> ResponsesType {
-        return CreateResponses(responses: [])
+    func write(request: WriteRequestsType) -> WriteResponsesType {
+        return WriteResponses(responses: [])
     }
     
 }

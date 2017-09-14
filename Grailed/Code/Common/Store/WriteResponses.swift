@@ -1,5 +1,5 @@
 //
-//  CreateResponses.swift
+//  WriteResponses.swift
 //  Grailed
 //
 //  Created by Andrew Copp on 9/14/17.
@@ -8,20 +8,21 @@
 
 import Foundation
 
-struct CreateResponses {
+struct WriteResponses {
     
-    let _responses: [ResponseType]
+    let _responses: [WriteResponseType]
     
-    init(responses: [ResponseType]) {
+    init(responses: [WriteResponseType]) {
         self._responses = responses
     }
     
 }
 
-extension CreateResponses: ResponsesType {
+extension WriteResponses: WriteResponsesType {
     
-    func responses() -> [ResponseType] {
+    func responses() -> [WriteResponseType] {
         return self._responses
     }
     
 }
+
