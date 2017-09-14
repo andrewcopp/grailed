@@ -13,6 +13,9 @@ protocol Storable {
     static var model: String { get }
     static var properties: [String] { get }
     
+    // TODO: Replace with Codable
+    init?(json: JSONDictionary)
+    
     func toJSON() -> JSONDictionary
 
 }

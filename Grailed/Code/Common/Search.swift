@@ -22,11 +22,25 @@ extension Search: Storable {
     }
     
     static var properties: [String] {
-        return ["name", "url"]
+        return ["name", "image_url"]
+    }
+    
+    init?(json: JSONDictionary) {
+        
+        guard let name: String = json["name"] as? String else {
+            return nil
+        }
+        
+        guard let urlString: String = json["image_url"] as? String, let url: URL = URL(string: urlString) else {
+            return nil
+        }
+        
+        self.name = name
+        self.url = url
     }
     
     func toJSON() -> JSONDictionary {
-        let json: JSONDictionary = ["name" : name as AnyObject, "url" : url as AnyObject]
+        let json: JSONDictionary = ["name" : self.name as AnyObject, "image_url" : self.url as AnyObject]
         return json
     }
     

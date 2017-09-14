@@ -23,7 +23,10 @@ class ListInteractor<T> where T: Storable, T: Listable {
         let request: ReadRequestsType = IndexRequests(model: T.model, properties: T.properties, requests: requests)
         self.network.read(requests: request) { response in
             let responses: [ReadResponseType] = response.responses()
-            if responses.count > 0, let objects = responses[0].objects() as? [T] {
+            if responses.count > 0 {
+                // TODO: Don't Hide Serialization Error
+                let objects = responses[0].objects().flatMap({ T(json: $0) })
+                print(objects.count)
                 return completion(objects)
             }
         }

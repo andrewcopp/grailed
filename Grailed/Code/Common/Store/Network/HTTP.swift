@@ -32,12 +32,20 @@ extension HTTP: NetworkType {
     
         requests.requests().forEach() { request in
             
-            let url: URL = URL(string: self.host)!.appendingPathComponent("articles").appendingPathComponent("ios_index")
+            var url: URL = URL(string: self.host)!
+            
+            switch requests.model() {
+            case "articles":
+                url = url.appendingPathComponent("articles").appendingPathComponent("ios_index")
+            case "searches":
+                url = url.appendingPathComponent("merchandise").appendingPathComponent("marquee")
+            default:
+                url = url.appendingPathComponent(requests.model())
+            }
+            
             var urlRequest: URLRequest = URLRequest(url: url)
             urlRequest.httpMethod = HTTPMethod.get.rawValue
-            
-            print(url)
-            
+                        
             self.urlSession.dataTask(with: urlRequest) { optionalData, optionalResponse, optionalError in
                 
                 if let error: Error = optionalError {

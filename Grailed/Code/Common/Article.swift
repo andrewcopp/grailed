@@ -15,6 +15,18 @@ struct Article {
     let title: String
     let publishedAt: Date
     
+}
+
+extension Article: Storable {
+    
+    static var model: String {
+        return "articles"
+    }
+    
+    static var properties: [String] {
+        return ["url", "title", "published_at"]
+    }
+    
     init?(json: JSONDictionary) {
         
         guard let urlString: String = json["url"] as? String, let url: URL = URL(string: urlString) else {
@@ -32,18 +44,6 @@ struct Article {
         self.url = url
         self.title = title
         self.publishedAt = publishedAt
-    }
-    
-}
-
-extension Article: Storable {
-    
-    static var model: String {
-        return "articles"
-    }
-    
-    static var properties: [String] {
-        return ["url", "title", "published_at"]
     }
     
     func toJSON() -> JSONDictionary {
