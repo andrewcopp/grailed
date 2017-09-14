@@ -60,7 +60,7 @@ extension HTTP: NetworkType {
                     return
                 }
                 
-                let responses: [ReadResponseType] = [ReadResponse(objects: json.flatMap({ Article(json: $0) }))]
+                let responses: [ReadResponseType] = [ReadResponse(objects: json)]
                 let response: ReadResponsesType = ReadResponses(responses: responses)
                 completion(response)
                 

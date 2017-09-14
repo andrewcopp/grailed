@@ -10,6 +10,6 @@ import Foundation
 
 protocol ReadResponseType: ResponseType {
     
-    func objects() -> [Storable]
+    func objects() -> [JSONDictionary]
     
 }

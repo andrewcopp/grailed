@@ -10,9 +10,9 @@ import Foundation
 
 struct ReadResponse {
     
-    let _objects: [Storable]
+    let _objects: [JSONDictionary]
     
-    init(objects: [Storable]) {
+    init(objects: [JSONDictionary]) {
         self._objects = objects
     }
     
@@ -20,7 +20,7 @@ struct ReadResponse {
 
 extension ReadResponse: ReadResponseType {
     
-    func objects() -> [Storable] {
+    func objects() -> [JSONDictionary] {
         return self._objects
     }
     
