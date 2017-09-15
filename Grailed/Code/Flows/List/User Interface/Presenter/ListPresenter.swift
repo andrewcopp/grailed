@@ -53,7 +53,6 @@ extension ListPresenter: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(self.interactor.items().count)
         return self.interactor.items().count
     }
     
