@@ -18,7 +18,11 @@ class ListInteractor<T> where T: Storable, T: Listable {
         self.store = store
     }
     
-    func fetch(completion: @escaping ([T]) -> ()) {
+}
+
+extension ListInteractor: ListInteractorType {
+    
+    func refresh() {
         let requests: [ReadRequestType] = [IndexRequest(limit: 30, offset: 0)]
         let request: ReadRequestsType = IndexRequests(model: T.model, properties: T.properties, requests: requests)
         self.network.read(requests: request) { response in
@@ -26,25 +30,15 @@ class ListInteractor<T> where T: Storable, T: Listable {
             if responses.count > 0 {
                 // TODO: Don't Hide Serialization Error
                 let objects = responses[0].objects().flatMap({ T(json: $0) })
-                return completion(objects)
+                
+                let requests: [WriteRequestType] = objects.map({ CreateRequest(object: $0.toJSON()) })
+                let request: WriteRequestsType = CreateRequests(model: T.model, properties: T.properties, requests: requests)
+                let response: WriteResponsesType = self.store.write(request: request)
+                let _: [WriteResponseType] = response.responses()
+                
+                let notification: Notification = Notification.init(name: Notification.Name(rawValue: "ApplicationDidWriteArticles"))
+                NotificationCenter.default.post(notification)
             }
-        }
-    }
-    
-    func persist(storables: [T]) {
-        let requests: [WriteRequestType] = storables.map({ CreateRequest(object: $0.toJSON()) })
-        let request: WriteRequestsType = CreateRequests(model: T.model, properties: T.properties, requests: requests)
-        let response: WriteResponsesType = self.store.write(request: request)
-        let _: [WriteResponseType] = response.responses()
-    }
-    
-}
-
-extension ListInteractor: ListInteractorType {
-    
-    func refresh() {
-        self.fetch() { storables in
-            self.persist(storables: storables)
         }
     }
     
