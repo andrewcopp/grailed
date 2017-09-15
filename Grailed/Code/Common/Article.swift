@@ -66,11 +66,12 @@ extension Article: Storable {
 
 extension Article: Listable {
     
-    init(response: ResponseType) {
-        self.identifier = 1
-        self.url = URL(string: "www.google.com")!
-        self.title = "This is a test."
-        self.publishedAt = Date()
+    func primaryText() -> String {
+        return self.title
+    }
+    
+    func secondaryText() -> String {
+        return "\(self.publishedAt)"
     }
     
 }

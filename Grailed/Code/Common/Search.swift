@@ -58,10 +58,12 @@ extension Search: Storable {
 
 extension Search: Listable {
     
-    init(response: ResponseType) {
-        self.identifier = 1
-        self.name = "This is a test."
-        self.url = URL(string: "www.google.com")!
+    func primaryText() -> String {
+        return self.name
+    }
+    
+    func secondaryText() -> String {
+        return ""
     }
     
 }

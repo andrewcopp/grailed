@@ -10,6 +10,7 @@ import Foundation
 
 protocol Listable {
     
-    init(response: ResponseType)
+    func primaryText() -> String
+    func secondaryText() -> String
     
 }

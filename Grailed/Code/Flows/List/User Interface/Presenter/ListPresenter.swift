@@ -13,9 +13,11 @@ class ListPresenter: NSObject {
     
     weak var viewController: ListViewControllerType?
     let interactor: ListInteractorType
+    let factory: ListableFactoryType
     
-    init(interactor: ListInteractorType) {
+    init(interactor: ListInteractorType, factory: ListableFactoryType) {
         self.interactor = interactor
+        self.factory = factory
         
         super.init()
         
@@ -35,6 +37,7 @@ extension ListPresenter: ListPresenterType {
     func configure(tableView: UITableView) {
         tableView.dataSource = self
         tableView.delegate = self
+        self.factory.configure(tableView: tableView)
     }
     
     func refresh() {
@@ -57,9 +60,7 @@ extension ListPresenter: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: UITableViewCell = UITableViewCell()
-        cell.textLabel?.text = "Andrew Copp"
-        return cell
+        return self.factory.cell(tableView: tableView, for: indexPath, listable: self.interactor.items()[indexPath.row])
     }
     
 }
