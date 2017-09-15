@@ -26,16 +26,17 @@ class ListInteractor<T> where T: Storable, T: Listable {
             if responses.count > 0 {
                 // TODO: Don't Hide Serialization Error
                 let objects = responses[0].objects().flatMap({ T(json: $0) })
-                print(objects.count)
                 return completion(objects)
             }
         }
     }
     
     func persist(storables: [T]) {
-        storables.forEach() { storable in
-            print(storable.toJSON())
-        }
+        let requests: [WriteRequestType] = storables.map({ CreateRequest(json: $0.toJSON()) })
+        let request: WriteRequestsType = CreateRequests(requests: requests)
+        let response: WriteResponsesType = self.store.write(request: request)
+        let responses: [WriteResponseType] = response.responses()
+        print(responses)
     }
     
 }

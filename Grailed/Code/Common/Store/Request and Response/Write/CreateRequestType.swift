@@ -8,4 +8,4 @@
 
 import Foundation
 
-protocol CreateRequestType: RequestType { }
+protocol CreateRequestType: WriteRequestType { }

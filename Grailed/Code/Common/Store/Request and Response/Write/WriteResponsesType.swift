@@ -8,4 +8,8 @@
 
 import Foundation
 
-protocol WriteResponsesType { }
+protocol WriteResponsesType {
+
+    func responses() -> [WriteResponseType]
+
+}

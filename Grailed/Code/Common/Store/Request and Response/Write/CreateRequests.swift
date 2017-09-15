@@ -10,12 +10,17 @@ import Foundation
 
 struct CreateRequests {
     
-    let requests: [CreateRequestType]
+    let _requests: [WriteRequestType]
     
-    init(requests: [CreateRequestType]) {
-        self.requests = requests
+    init(requests: [WriteRequestType]) {
+        self._requests = requests
     }
     
 }
+extension CreateRequests: CreateRequestsType {
 
-extension CreateRequests: CreateRequestsType { }
+    func requests() -> [WriteRequestType] {
+        return self._requests
+    }
+    
+}

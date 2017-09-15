@@ -47,7 +47,7 @@ extension HTTP: NetworkType {
             urlRequest.httpMethod = HTTPMethod.get.rawValue
                         
             self.urlSession.dataTask(with: urlRequest) { optionalData, optionalResponse, optionalError in
-                
+                                
                 if let error: Error = optionalError {
                     print(error)
                 }
