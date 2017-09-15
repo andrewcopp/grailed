@@ -36,7 +36,7 @@ extension ListInteractor: ListInteractorType {
                 let response: WriteResponsesType = self.store.write(request: request)
                 let _: [WriteResponseType] = response.responses()
                 
-                let notification: Notification = Notification.init(name: Notification.Name(rawValue: "ApplicationDidWriteArticles"))
+                let notification: Notification = Notification.init(name: Notification.Name(rawValue: "ApplicationDidRefreshStorables"))
                 NotificationCenter.default.post(notification)
             }
         }
@@ -44,7 +44,7 @@ extension ListInteractor: ListInteractorType {
     
     func items() -> [Listable] {
         
-        let requests: [ReadRequestType] = [IndexRequest(limit: 30, offset: 0)]
+        let requests: [ReadRequestType] = [IndexRequest(limit: 0, offset: 0)]
         let request: ReadRequestsType = IndexRequests(model: T.model, properties: T.properties, requests: requests)
         let response: ReadResponsesType = self.store.read(request: request)
         let responses: [ReadResponseType] = response.responses()

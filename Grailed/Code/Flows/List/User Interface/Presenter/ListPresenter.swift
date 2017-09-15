@@ -16,6 +16,16 @@ class ListPresenter: NSObject {
     
     init(interactor: ListInteractorType) {
         self.interactor = interactor
+        
+        super.init()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(ListPresenter.applicationDidRefreshStoreables(notifcation:)), name: Notification.Name.init(rawValue: "ApplicationDidRefreshStorables"), object: nil)
+    }
+    
+    dynamic func applicationDidRefreshStoreables(notifcation: Notification) {
+        DispatchQueue.main.async {
+            self.viewController?.tableView().reloadData()
+        }
     }
     
 }
@@ -28,7 +38,9 @@ extension ListPresenter: ListPresenterType {
     }
     
     func refresh() {
-        self.interactor.refresh()
+        DispatchQueue.global(qos: DispatchQoS.background.qosClass).async {
+            self.interactor.refresh()
+        }
     }
     
 }
@@ -41,6 +53,7 @@ extension ListPresenter: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print(self.interactor.items().count)
         return self.interactor.items().count
     }
     

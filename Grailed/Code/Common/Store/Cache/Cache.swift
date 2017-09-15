@@ -18,16 +18,29 @@ class Cache {
         self.cache = NSCache<NSString, AnyObject>()
     }
     
-    func find(identifier: Int) -> AnyObject {
-        return "" as AnyObject
+    func find(identifier: Int) -> JSONDictionary {
+        return [:]
     }
     
-    func index(limit: Int, offset: Int) -> [AnyObject] {
-        return ["" as AnyObject]
+    func index(model: String, limit: Int, offset: Int) -> [JSONDictionary] {
+        let objects: [Int : Data] = self.cache.object(forKey: model as NSString) as? [Int : Data] ?? [:]
+        
+        let json: [JSONDictionary] = objects.flatMap() { key, value in
+            let json: JSONDictionary?
+            do {
+                json = try JSONSerialization.jsonObject(with: value, options: []) as? JSONDictionary
+            } catch {
+                return nil
+            }
+            
+            return json
+        }
+                
+        return json
     }
     
-    func search(parameters: JSONDictionary) -> [AnyObject] {
-        return ["" as AnyObject]
+    func search(parameters: JSONDictionary) -> [JSONDictionary] {
+        return [[:]]
     }
     
     func create(model: String, object: JSONDictionary) -> Bool {
@@ -68,18 +81,17 @@ class Cache {
 extension Cache: StoreType {
 
     func read(request: ReadRequestsType) -> ReadResponsesType {
+        let model: String = request.model()
         let responses: [ReadResponseType] = request.requests().map() { request in
             
-//            switch request.type() {
-//            case ReadType.Find(let identifier):
-//                return ReadResponse(objects: [self.find(identifier: identifier) as! Dictionary<String, AnyObject>])
-//            case ReadType.Index(let limit, let offset):
-//                return ReadResponse(objects: self.index(limit: limit, offset: offset) as! [Dictionary<String, AnyObject>])
-//            case ReadType.Search(let parameters):
-//                return ReadResponse(objects: self.search(parameters: parameters) as! [Dictionary<String, AnyObject>])
-//            }
-            
-            return ReadResponse(objects: [[:]])
+            switch request.type() {
+            case ReadType.Find(let identifier):
+                return ReadResponse(objects: [self.find(identifier: identifier)])
+            case ReadType.Index(let limit, let offset):
+                return ReadResponse(objects: self.index(model: model, limit: limit, offset: offset))
+            case ReadType.Search(let parameters):
+                return ReadResponse(objects: self.search(parameters: parameters))
+            }
             
         }
         return ReadResponses(responses: responses)
