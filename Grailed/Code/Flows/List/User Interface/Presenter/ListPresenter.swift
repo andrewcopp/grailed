@@ -34,6 +34,11 @@ class ListPresenter: NSObject {
 
 extension ListPresenter: ListPresenterType {
     
+    func name() -> String {
+        let name: String = self.interactor.model()
+        return name.capitalized
+    }
+    
     func configure(tableView: UITableView) {
         tableView.dataSource = self
         tableView.delegate = self

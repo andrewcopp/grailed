@@ -39,6 +39,8 @@ class ListViewController: UIViewController {
         
         self.presenter.configure(tableView: self._tableView)
         self.presenter.refresh()
+        
+        self.title = self.presenter.name()
     }
     
     dynamic func applicationDidBecomeActive(notificaiton: Notification) {

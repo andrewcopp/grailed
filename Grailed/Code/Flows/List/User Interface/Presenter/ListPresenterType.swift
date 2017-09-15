@@ -11,6 +11,8 @@ import UIKit
 
 protocol ListPresenterType {
     
+    func name() -> String
+    
     func configure(tableView: UITableView)
     func refresh()
     

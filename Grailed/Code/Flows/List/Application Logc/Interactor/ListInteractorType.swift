@@ -12,6 +12,7 @@ protocol ListInteractorType {
     
     func refresh()
     
+    func model() -> String
     func items() -> [Listable]
     
 }

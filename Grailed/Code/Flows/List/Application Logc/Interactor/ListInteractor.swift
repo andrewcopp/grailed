@@ -22,6 +22,10 @@ class ListInteractor<T> where T: Storable, T: Listable {
 
 extension ListInteractor: ListInteractorType {
     
+    func model() -> String {
+        return T.model
+    }
+    
     func refresh() {
         let requests: [ReadRequestType] = [IndexRequest(limit: 30, offset: 0)]
         let request: ReadRequestsType = IndexRequests(model: T.model, properties: T.properties, requests: requests)
