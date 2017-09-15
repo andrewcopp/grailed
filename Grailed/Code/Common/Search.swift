@@ -10,6 +10,7 @@ import Foundation
 
 struct Search {
     
+    let identifier: Int
     let name: String
     let url: URL
     
@@ -22,10 +23,14 @@ extension Search: Storable {
     }
     
     static var properties: [String] {
-        return ["name", "image_url"]
+        return ["id", "name", "image_url"]
     }
     
     init?(json: JSONDictionary) {
+        
+        guard let identifier: Int = json["id"] as? Int else {
+            return nil
+        }
         
         guard let name: String = json["name"] as? String else {
             return nil
@@ -35,12 +40,17 @@ extension Search: Storable {
             return nil
         }
         
+        self.identifier = identifier
         self.name = name
         self.url = url
     }
     
     func toJSON() -> JSONDictionary {
-        let json: JSONDictionary = ["name" : self.name as AnyObject, "image_url" : self.url as AnyObject]
+        let json: JSONDictionary = [
+            "id" : self.identifier as AnyObject,
+            "name" : self.name as AnyObject,
+            "image_url" : self.url.absoluteString as AnyObject
+        ]
         return json
     }
     
@@ -49,6 +59,7 @@ extension Search: Storable {
 extension Search: Listable {
     
     init(response: ResponseType) {
+        self.identifier = 1
         self.name = "This is a test."
         self.url = URL(string: "www.google.com")!
     }

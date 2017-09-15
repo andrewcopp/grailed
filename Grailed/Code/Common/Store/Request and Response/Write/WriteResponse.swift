@@ -10,8 +10,18 @@ import Foundation
 
 struct WriteResponse {
     
+    let _statusCode: Int
+    
+    init(statusCode: Int) {
+        self._statusCode = statusCode
+    }
+    
 }
 
 extension WriteResponse: WriteResponseType {
+    
+    func statusCode() -> Int {
+        return self._statusCode
+    }
     
 }

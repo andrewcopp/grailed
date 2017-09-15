@@ -11,11 +11,11 @@ import Foundation
 class Cache {
     
     let base: StoreType
-    let cache: NSCache<AnyObject, AnyObject>
+    let cache: NSCache<NSString, AnyObject>
     
     init(base: StoreType) {
         self.base = base
-        self.cache = NSCache<AnyObject, AnyObject>()
+        self.cache = NSCache<NSString, AnyObject>()
     }
     
     func find(identifier: Int) -> AnyObject {
@@ -28,6 +28,39 @@ class Cache {
     
     func search(parameters: JSONDictionary) -> [AnyObject] {
         return ["" as AnyObject]
+    }
+    
+    func create(model: String, object: JSONDictionary) -> Bool {
+        var objects: [Int : Data] = self.cache.object(forKey: model as NSString) as? [Int : Data] ?? [Int : Data]()
+        
+        guard let identifier: Int = object["id"] as? Int else {
+            return false
+        }
+        
+        if let _: Data = objects[identifier] {
+            return false
+        }
+        
+        let data: Data
+        do {
+            data = try JSONSerialization.data(withJSONObject: object, options: [])
+        } catch {
+            return false
+        }
+        
+        objects[identifier] = data
+                
+        self.cache.setObject(objects as AnyObject, forKey: model as NSString)
+        
+        return true
+    }
+    
+    func update(model: String, object: JSONDictionary) -> Bool {
+        return true
+    }
+    
+    func delete(model: String, identifier: Int) -> Bool {
+        return true
     }
     
 }
@@ -53,8 +86,19 @@ extension Cache: StoreType {
     }
     
     func write(request: WriteRequestsType) -> WriteResponsesType {
+        let model: String = request.model()
         let responses: [WriteResponseType] = request.requests().map() { request in
-            return WriteResponse()
+            
+            if let request: CreateRequestType = request as? CreateRequestType {
+                if self.create(model: model, object: request.object()) {
+                    return WriteResponse(statusCode: 201)
+                } else {
+                    return WriteResponse(statusCode: 500)
+                }
+            } else {
+                return WriteResponse(statusCode: 500)
+            }
+            
         }
         return WriteResponses(responses: responses)
     }

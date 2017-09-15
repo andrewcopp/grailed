@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol WriteRequestsType {
+protocol WriteRequestsType: RequestsType {
 
     func requests() -> [WriteRequestType]
     

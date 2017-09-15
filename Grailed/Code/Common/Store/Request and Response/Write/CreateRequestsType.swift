@@ -8,4 +8,16 @@
 
 import Foundation
 
-protocol CreateRequestsType: WriteRequestsType { }
+protocol CreateRequestsType: WriteRequestsType {
+
+    func properties() -> [String]
+    
+}
+
+extension CreateRequestsType {
+    
+    static var method: Method {
+        return Method.create
+    }
+    
+}

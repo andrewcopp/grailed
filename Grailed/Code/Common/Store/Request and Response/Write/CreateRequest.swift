@@ -10,12 +10,18 @@ import Foundation
 
 struct CreateRequest {
     
-    let json: JSONDictionary
+    let _object: JSONDictionary
     
-    init(json: JSONDictionary) {
-        self.json = json
+    init(object: JSONDictionary) {
+        self._object = object
     }
     
 }
 
-extension CreateRequest: CreateRequestType { }
+extension CreateRequest: CreateRequestType {
+
+    func object() -> JSONDictionary {
+        return self._object
+    }
+    
+}

@@ -8,4 +8,8 @@
 
 import Foundation
 
-protocol WriteResponseType { }
+protocol WriteResponseType {
+
+    func statusCode() -> Int
+
+}

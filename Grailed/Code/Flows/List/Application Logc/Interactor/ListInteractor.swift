@@ -32,8 +32,8 @@ class ListInteractor<T> where T: Storable, T: Listable {
     }
     
     func persist(storables: [T]) {
-        let requests: [WriteRequestType] = storables.map({ CreateRequest(json: $0.toJSON()) })
-        let request: WriteRequestsType = CreateRequests(requests: requests)
+        let requests: [WriteRequestType] = storables.map({ CreateRequest(object: $0.toJSON()) })
+        let request: WriteRequestsType = CreateRequests(model: T.model, properties: T.properties, requests: requests)
         let response: WriteResponsesType = self.store.write(request: request)
         let responses: [WriteResponseType] = response.responses()
         print(responses)

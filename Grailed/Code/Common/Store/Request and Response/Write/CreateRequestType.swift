@@ -8,4 +8,8 @@
 
 import Foundation
 
-protocol CreateRequestType: WriteRequestType { }
+protocol CreateRequestType: WriteRequestType {
+
+    func object() -> JSONDictionary
+    
+}

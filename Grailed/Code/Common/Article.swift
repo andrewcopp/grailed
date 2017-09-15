@@ -11,6 +11,7 @@ import Foundation
 // TODO: Codeable
 struct Article {
     
+    let identifier: Int
     let url: URL
     let title: String
     let publishedAt: Date
@@ -24,10 +25,14 @@ extension Article: Storable {
     }
     
     static var properties: [String] {
-        return ["url", "title", "published_at"]
+        return ["id", "url", "title", "published_at"]
     }
     
     init?(json: JSONDictionary) {
+        
+        guard let identifier: Int = json["id"] as? Int else {
+            return nil
+        }
         
         guard let urlString: String = json["url"] as? String, let url: URL = URL(string: urlString) else {
             return nil
@@ -41,13 +46,19 @@ extension Article: Storable {
             return nil
         }
         
+        self.identifier = identifier
         self.url = url
         self.title = title
         self.publishedAt = publishedAt
     }
     
     func toJSON() -> JSONDictionary {
-        let json: JSONDictionary = ["url" : self.url.absoluteString as AnyObject, "title" : self.title as AnyObject, "published_at" : self.publishedAt as AnyObject]
+        let json: JSONDictionary = [
+            "id" : self.identifier as AnyObject,
+            "url" : self.url.absoluteString as AnyObject,
+            "title" : self.title as AnyObject,
+            "published_at" : "TODO: Date" as AnyObject
+        ]
         return json
     }
     
@@ -56,6 +67,7 @@ extension Article: Storable {
 extension Article: Listable {
     
     init(response: ResponseType) {
+        self.identifier = 1
         self.url = URL(string: "www.google.com")!
         self.title = "This is a test."
         self.publishedAt = Date()
