@@ -49,7 +49,7 @@ extension ListInteractor: ListInteractorType {
         let response: ReadResponsesType = self.store.read(request: request)
         let responses: [ReadResponseType] = response.responses()
         
-        if responses.count > 0, let listables = responses[0].objects() as? [Listable] {
+        if responses.count > 0, let listables = responses[0].objects().map({ T(json: $0) }) as? [Listable] {
             return listables
         } else {
             return []
