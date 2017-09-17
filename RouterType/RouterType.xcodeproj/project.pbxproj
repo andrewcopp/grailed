@@ -12,6 +12,7 @@
 		570CF9D91F6EE591006E2500 /* RouterType.h in Headers */ = {isa = PBXBuildFile; fileRef = 570CF9CB1F6EE591006E2500 /* RouterType.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		570CFA431F6EE759006E2500 /* RouterType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570CFA421F6EE759006E2500 /* RouterType.swift */; };
 		570CFAB31F6EEB67006E2500 /* ViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570CFAB21F6EEB67006E2500 /* ViewRouter.swift */; };
+		570CFABB1F6EEC2E006E2500 /* FactoryType.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 570CFABA1F6EEC2E006E2500 /* FactoryType.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +34,7 @@
 		570CF9D81F6EE591006E2500 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		570CFA421F6EE759006E2500 /* RouterType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterType.swift; sourceTree = "<group>"; };
 		570CFAB21F6EEB67006E2500 /* ViewRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewRouter.swift; sourceTree = "<group>"; };
+		570CFABA1F6EEC2E006E2500 /* FactoryType.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FactoryType.framework; path = "../FactoryType/build/Debug-iphoneos/FactoryType.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +42,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				570CFABB1F6EEC2E006E2500 /* FactoryType.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,6 +63,7 @@
 				570CF9CA1F6EE591006E2500 /* RouterType */,
 				570CF9D51F6EE591006E2500 /* RouterTypeTests */,
 				570CF9C91F6EE591006E2500 /* Products */,
+				570CFAB91F6EEC2E006E2500 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -98,6 +102,14 @@
 				570CFAB21F6EEB67006E2500 /* ViewRouter.swift */,
 			);
 			path = Code;
+			sourceTree = "<group>";
+		};
+		570CFAB91F6EEC2E006E2500 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				570CFABA1F6EEC2E006E2500 /* FactoryType.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

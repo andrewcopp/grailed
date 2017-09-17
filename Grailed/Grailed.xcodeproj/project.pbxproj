@@ -18,6 +18,7 @@
 		570CFA5B1F6EE827006E2500 /* TabBar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 570CFA591F6EE827006E2500 /* TabBar.framework */; };
 		570CFAB71F6EEBCC006E2500 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570CFAB51F6EEBCC006E2500 /* Article.swift */; };
 		570CFAB81F6EEBCC006E2500 /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570CFAB61F6EEBCC006E2500 /* Search.swift */; };
+		570CFABD1F6EEC3E006E2500 /* List.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 570CFABC1F6EEC3E006E2500 /* List.framework */; };
 		572CF29F1F6509FD00DA4F46 /* AppDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572CF29E1F6509FD00DA4F46 /* AppDependencies.swift */; };
 		572CF2A31F650B8800DA4F46 /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572CF2A21F650B8800DA4F46 /* AppConfiguration.swift */; };
 		579BE1331F64700200965708 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579BE1321F64700200965708 /* AppDelegate.swift */; };
@@ -57,6 +58,7 @@
 		570CFA591F6EE827006E2500 /* TabBar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TabBar.framework; path = "../TabBar/build/Debug-iphoneos/TabBar.framework"; sourceTree = "<group>"; };
 		570CFAB51F6EEBCC006E2500 /* Article.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		570CFAB61F6EEBCC006E2500 /* Search.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
+		570CFABC1F6EEC3E006E2500 /* List.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = List.framework; path = "../List/build/Debug-iphoneos/List.framework"; sourceTree = "<group>"; };
 		572CF29E1F6509FD00DA4F46 /* AppDependencies.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDependencies.swift; sourceTree = "<group>"; };
 		572CF2A21F650B8800DA4F46 /* AppConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConfiguration.swift; sourceTree = "<group>"; };
 		579BE12F1F64700200965708 /* Grailed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Grailed.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -78,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				570CFABD1F6EEC3E006E2500 /* List.framework in Frameworks */,
 				570CFA5A1F6EE827006E2500 /* Navigation.framework in Frameworks */,
 				570CFA5B1F6EE827006E2500 /* TabBar.framework in Frameworks */,
 				570CF9ED1F6EE5B8006E2500 /* FactoryType.framework in Frameworks */,
@@ -181,6 +184,7 @@
 		57F285DE1F6EDA0B0090FB59 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				570CFABC1F6EEC3E006E2500 /* List.framework */,
 				570CFA581F6EE827006E2500 /* Navigation.framework */,
 				570CFA591F6EE827006E2500 /* TabBar.framework */,
 				570CF9EB1F6EE5B8006E2500 /* FactoryType.framework */,
