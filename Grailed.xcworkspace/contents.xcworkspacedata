@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:Grailed/Grailed.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Grailed/../StoreType/StoreType.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Grailed/../HTTP/HTTP.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Grailed/../Cache/Cache.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:SQLite/SQLite.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Layout/Layout.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:HTTP/../Promise/Promise.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:FactoryType/../RouterType/RouterType.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:FactoryType/FactoryType.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Grailed/../Navigation/Navigation.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:TabBar/TabBar.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:List/List.xcodeproj">
+   </FileRef>
+</Workspace>
