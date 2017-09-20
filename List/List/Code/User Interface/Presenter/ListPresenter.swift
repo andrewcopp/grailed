@@ -24,7 +24,7 @@ class ListPresenter: NSObject {
         NotificationCenter.default.addObserver(self, selector: #selector(ListPresenter.applicationDidRefreshStoreables(notifcation:)), name: Notification.Name.init(rawValue: "ApplicationDidRefreshStorables"), object: nil)
     }
     
-    dynamic func applicationDidRefreshStoreables(notifcation: Notification) {
+    @objc func applicationDidRefreshStoreables(notifcation: Notification) {
         DispatchQueue.main.async {
             self.viewController?.tableView().reloadData()
         }

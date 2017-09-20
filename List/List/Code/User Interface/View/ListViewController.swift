@@ -43,7 +43,7 @@ class ListViewController: UIViewController {
         self.title = self.presenter.name()
     }
     
-    dynamic func applicationDidBecomeActive(notificaiton: Notification) {
+    @objc func applicationDidBecomeActive(notificaiton: Notification) {
         self.presenter.refresh()
     }
     
