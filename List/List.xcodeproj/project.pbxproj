@@ -15,13 +15,9 @@
 		570CFAA11F6EEA21006E2500 /* ListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570CFA871F6EEA21006E2500 /* ListInteractor.swift */; };
 		570CFAA21F6EEA21006E2500 /* ListInteractorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570CFA881F6EEA21006E2500 /* ListInteractorType.swift */; };
 		570CFAA31F6EEA21006E2500 /* Listable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570CFA8B1F6EEA21006E2500 /* Listable.swift */; };
-		570CFAA41F6EEA21006E2500 /* DefaultListablePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570CFA8F1F6EEA21006E2500 /* DefaultListablePresenter.swift */; };
-		570CFAA51F6EEA21006E2500 /* DefaultListablePresenterType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570CFA901F6EEA21006E2500 /* DefaultListablePresenterType.swift */; };
 		570CFAA61F6EEA21006E2500 /* ListablePresenterType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570CFA911F6EEA21006E2500 /* ListablePresenterType.swift */; };
 		570CFAA71F6EEA21006E2500 /* ListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570CFA921F6EEA21006E2500 /* ListPresenter.swift */; };
 		570CFAA81F6EEA21006E2500 /* ListPresenterType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570CFA931F6EEA21006E2500 /* ListPresenterType.swift */; };
-		570CFAA91F6EEA21006E2500 /* DefaultListableCellType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570CFA951F6EEA21006E2500 /* DefaultListableCellType.swift */; };
-		570CFAAA1F6EEA21006E2500 /* DefaultListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570CFA961F6EEA21006E2500 /* DefaultListCell.swift */; };
 		570CFAAB1F6EEA21006E2500 /* ListableCellType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570CFA971F6EEA21006E2500 /* ListableCellType.swift */; };
 		570CFAAC1F6EEA21006E2500 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570CFA981F6EEA21006E2500 /* ListViewController.swift */; };
 		570CFAAD1F6EEA21006E2500 /* ListViewControllerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570CFA991F6EEA21006E2500 /* ListViewControllerType.swift */; };
@@ -29,6 +25,10 @@
 		570CFAAF1F6EEA21006E2500 /* ListableFactoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570CFA9C1F6EEA21006E2500 /* ListableFactoryType.swift */; };
 		570CFAB01F6EEA21006E2500 /* ListFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570CFA9D1F6EEA21006E2500 /* ListFactory.swift */; };
 		570CFAB11F6EEA21006E2500 /* ListFactoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570CFA9E1F6EEA21006E2500 /* ListFactoryType.swift */; };
+		57E4222B1F744AD1009689AE /* DefaultListablePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E422291F744AD1009689AE /* DefaultListablePresenter.swift */; };
+		57E4222C1F744AD1009689AE /* DefaultListablePresenterType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E4222A1F744AD1009689AE /* DefaultListablePresenterType.swift */; };
+		57E4222F1F744ADA009689AE /* DefaultListableCellType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E4222D1F744AD9009689AE /* DefaultListableCellType.swift */; };
+		57E422301F744ADA009689AE /* DefaultListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E4222E1F744AD9009689AE /* DefaultListCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,13 +53,9 @@
 		570CFA871F6EEA21006E2500 /* ListInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListInteractor.swift; sourceTree = "<group>"; };
 		570CFA881F6EEA21006E2500 /* ListInteractorType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListInteractorType.swift; sourceTree = "<group>"; };
 		570CFA8B1F6EEA21006E2500 /* Listable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Listable.swift; sourceTree = "<group>"; };
-		570CFA8F1F6EEA21006E2500 /* DefaultListablePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultListablePresenter.swift; sourceTree = "<group>"; };
-		570CFA901F6EEA21006E2500 /* DefaultListablePresenterType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultListablePresenterType.swift; sourceTree = "<group>"; };
 		570CFA911F6EEA21006E2500 /* ListablePresenterType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListablePresenterType.swift; sourceTree = "<group>"; };
 		570CFA921F6EEA21006E2500 /* ListPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListPresenter.swift; sourceTree = "<group>"; };
 		570CFA931F6EEA21006E2500 /* ListPresenterType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListPresenterType.swift; sourceTree = "<group>"; };
-		570CFA951F6EEA21006E2500 /* DefaultListableCellType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultListableCellType.swift; sourceTree = "<group>"; };
-		570CFA961F6EEA21006E2500 /* DefaultListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultListCell.swift; sourceTree = "<group>"; };
 		570CFA971F6EEA21006E2500 /* ListableCellType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListableCellType.swift; sourceTree = "<group>"; };
 		570CFA981F6EEA21006E2500 /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		570CFA991F6EEA21006E2500 /* ListViewControllerType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewControllerType.swift; sourceTree = "<group>"; };
@@ -67,6 +63,10 @@
 		570CFA9C1F6EEA21006E2500 /* ListableFactoryType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListableFactoryType.swift; sourceTree = "<group>"; };
 		570CFA9D1F6EEA21006E2500 /* ListFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListFactory.swift; sourceTree = "<group>"; };
 		570CFA9E1F6EEA21006E2500 /* ListFactoryType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListFactoryType.swift; sourceTree = "<group>"; };
+		57E422291F744AD1009689AE /* DefaultListablePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultListablePresenter.swift; sourceTree = "<group>"; };
+		57E4222A1F744AD1009689AE /* DefaultListablePresenterType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultListablePresenterType.swift; sourceTree = "<group>"; };
+		57E4222D1F744AD9009689AE /* DefaultListableCellType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultListableCellType.swift; sourceTree = "<group>"; };
+		57E4222E1F744AD9009689AE /* DefaultListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultListCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,8 +191,8 @@
 		570CFA8E1F6EEA21006E2500 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
-				570CFA8F1F6EEA21006E2500 /* DefaultListablePresenter.swift */,
-				570CFA901F6EEA21006E2500 /* DefaultListablePresenterType.swift */,
+				57E422291F744AD1009689AE /* DefaultListablePresenter.swift */,
+				57E4222A1F744AD1009689AE /* DefaultListablePresenterType.swift */,
 				570CFA911F6EEA21006E2500 /* ListablePresenterType.swift */,
 				570CFA921F6EEA21006E2500 /* ListPresenter.swift */,
 				570CFA931F6EEA21006E2500 /* ListPresenterType.swift */,
@@ -203,8 +203,8 @@
 		570CFA941F6EEA21006E2500 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				570CFA951F6EEA21006E2500 /* DefaultListableCellType.swift */,
-				570CFA961F6EEA21006E2500 /* DefaultListCell.swift */,
+				57E4222D1F744AD9009689AE /* DefaultListableCellType.swift */,
+				57E4222E1F744AD9009689AE /* DefaultListCell.swift */,
 				570CFA971F6EEA21006E2500 /* ListableCellType.swift */,
 				570CFA981F6EEA21006E2500 /* ListViewController.swift */,
 				570CFA991F6EEA21006E2500 /* ListViewControllerType.swift */,
@@ -338,21 +338,21 @@
 				570CFAB01F6EEA21006E2500 /* ListFactory.swift in Sources */,
 				570CFAA61F6EEA21006E2500 /* ListablePresenterType.swift in Sources */,
 				570CFAA71F6EEA21006E2500 /* ListPresenter.swift in Sources */,
-				570CFAA51F6EEA21006E2500 /* DefaultListablePresenterType.swift in Sources */,
+				57E4222F1F744ADA009689AE /* DefaultListableCellType.swift in Sources */,
 				570CFAA21F6EEA21006E2500 /* ListInteractorType.swift in Sources */,
 				570CFAAE1F6EEA21006E2500 /* DefaultListableFactory.swift in Sources */,
-				570CFAA91F6EEA21006E2500 /* DefaultListableCellType.swift in Sources */,
 				570CFAA31F6EEA21006E2500 /* Listable.swift in Sources */,
 				570CFAAC1F6EEA21006E2500 /* ListViewController.swift in Sources */,
+				57E4222C1F744AD1009689AE /* DefaultListablePresenterType.swift in Sources */,
 				570CFAB11F6EEA21006E2500 /* ListFactoryType.swift in Sources */,
 				570CFAA11F6EEA21006E2500 /* ListInteractor.swift in Sources */,
 				570CFAA81F6EEA21006E2500 /* ListPresenterType.swift in Sources */,
+				57E4222B1F744AD1009689AE /* DefaultListablePresenter.swift in Sources */,
 				570CFAAB1F6EEA21006E2500 /* ListableCellType.swift in Sources */,
 				570CFAAF1F6EEA21006E2500 /* ListableFactoryType.swift in Sources */,
 				570CFAA01F6EEA21006E2500 /* ListableInteractorType.swift in Sources */,
-				570CFAAA1F6EEA21006E2500 /* DefaultListCell.swift in Sources */,
+				57E422301F744ADA009689AE /* DefaultListCell.swift in Sources */,
 				570CFAAD1F6EEA21006E2500 /* ListViewControllerType.swift in Sources */,
-				570CFAA41F6EEA21006E2500 /* DefaultListablePresenter.swift in Sources */,
 				570CFA9F1F6EEA21006E2500 /* ListableInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

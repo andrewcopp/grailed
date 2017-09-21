@@ -26,6 +26,8 @@
 		579BE13D1F64700200965708 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 579BE13B1F64700200965708 /* LaunchScreen.storyboard */; };
 		579BE1481F64700200965708 /* GrailedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579BE1471F64700200965708 /* GrailedTests.swift */; };
 		579BE1531F64700200965708 /* GrailedUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579BE1521F64700200965708 /* GrailedUITests.swift */; };
+		57E4221C1F74449C009689AE /* FavoriteCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E4221B1F74449C009689AE /* FavoriteCache.swift */; };
+		57E422201F7449DC009689AE /* Favorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E4221F1F7449DC009689AE /* Favorite.swift */; };
 		57F285E01F6EDA0C0090FB59 /* StoreType.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57F285DF1F6EDA0C0090FB59 /* StoreType.framework */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +74,8 @@
 		579BE14E1F64700200965708 /* GrailedUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GrailedUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		579BE1521F64700200965708 /* GrailedUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrailedUITests.swift; sourceTree = "<group>"; };
 		579BE1541F64700200965708 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		57E4221B1F74449C009689AE /* FavoriteCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCache.swift; sourceTree = "<group>"; };
+		57E4221F1F7449DC009689AE /* Favorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorite.swift; sourceTree = "<group>"; };
 		57F285DF1F6EDA0C0090FB59 /* StoreType.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreType.framework; path = "../StoreType/build/Debug-iphoneos/StoreType.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -116,6 +120,8 @@
 			children = (
 				570CFAB51F6EEBCC006E2500 /* Article.swift */,
 				570CFAB61F6EEBCC006E2500 /* Search.swift */,
+				57E4221F1F7449DC009689AE /* Favorite.swift */,
+				57E4221B1F74449C009689AE /* FavoriteCache.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -336,6 +342,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				570CFAB71F6EEBCC006E2500 /* Article.swift in Sources */,
+				57E422201F7449DC009689AE /* Favorite.swift in Sources */,
+				57E4221C1F74449C009689AE /* FavoriteCache.swift in Sources */,
 				572CF29F1F6509FD00DA4F46 /* AppDependencies.swift in Sources */,
 				570CFAB81F6EEBCC006E2500 /* Search.swift in Sources */,
 				579BE1331F64700200965708 /* AppDelegate.swift in Sources */,

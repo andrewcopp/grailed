@@ -17,5 +17,6 @@ class AppDependencies {
     
     let network: AsynchronousStoreType = HTTP(host: "https://www.grailed.com/api")
     let cache: StoreType = Cache(base: SQLite())
+    let mockCache: StoreType = FavoriteCache()
     
 }

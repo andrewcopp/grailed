@@ -12,4 +12,6 @@ protocol ListableInteractorType {
     
     func listable() -> Listable
     
+    func save()
+    
 }
