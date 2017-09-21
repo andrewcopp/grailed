@@ -52,9 +52,9 @@ public class Cache {
             return false
         }
         
-        if let _: Data = objects[identifier] {
-            return false
-        }
+//        if let _: Data = objects[identifier] {
+//            return false
+//        }
         
         let data: Data
         do {

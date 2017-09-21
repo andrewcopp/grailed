@@ -45,7 +45,7 @@ extension Favorite: Storable {
     }
     
     static var properties: [String] {
-        return ["values"]
+        return ["id", "values"]
     }
     
     init?(json: JSONDictionary) {
@@ -65,9 +65,9 @@ extension Favorite: Storable {
     func toJSON() -> JSONDictionary {
         switch self {
         case Favorite.A(let article):
-            return ["values" : article.toJSON() as AnyObject]
+            return ["id" : 1 as AnyObject, "values" : article.toJSON() as AnyObject]
         case Favorite.S(let search):
-            return ["values" : search.toJSON() as AnyObject]
+            return ["id" : 1 as AnyObject, "values" : search.toJSON() as AnyObject]
         }
     }
     

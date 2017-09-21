@@ -28,7 +28,7 @@ extension ListFactory: ListFactoryType {
  
     public func viewController() -> UIViewController {
         let interactor: ListInteractor = ListInteractor<T>(network: self.network, store: self.store)
-        let presenter: ListPresenter = ListPresenter(interactor: interactor, factory: DefaultListableFactory())
+        let presenter: ListPresenter = ListPresenter(interactor: interactor, factory: DefaultListableFactory(store: self.store))
         let viewController: ListViewController = ListViewController(presenter: presenter)
         presenter.viewController = viewController
         return viewController

@@ -9,7 +9,15 @@
 import Foundation
 import UIKit
 
+import StoreType
+
 class DefaultListableFactory {
+    
+    let store: StoreType
+    
+    init(store: StoreType) {
+        self.store = store
+    }
     
 }
 
@@ -20,7 +28,7 @@ extension DefaultListableFactory: ListableFactoryType {
     }
     
     func cell(tableView: UITableView, for indexPath: IndexPath, listable: Listable) -> UITableViewCell {
-        let interactor: ListableInteractorType = ListableInteractor(listable: listable)
+        let interactor: ListableInteractorType = ListableInteractor(listable: listable, store: self.store)
         let presenter: DefaultListablePresenter = DefaultListablePresenter(interactor: interactor)
         let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "DefaultListableCell", for: indexPath)
         if let listableCell: DefaultListableCellType = cell as? DefaultListableCellType {
